@@ -2,12 +2,15 @@ from fastapi import FastAPI
 from azure.servicebus import ServiceBusClient, ServiceBusMessage
 import time
 import os
+import socket
+
 
 app = FastAPI()
 
 @app.get('/')
 def index():
-    return {"message": "Hello World"}
+    hostname = socket.gethostname()
+    return {"message": f"Hello World {hostname} "}
 
 
 
