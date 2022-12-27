@@ -5,6 +5,12 @@ import os
 
 app = FastAPI()
 
+@app.get('/')
+def index():
+    return {"message": "Hello World"}
+
+
+
 
 @app.post("/send-message")
 def send_message(connection_string: str ,queue: str  , message: str = 'elhays', delay: int = 0,how_many: int = 1, message_length: int = 1024):
